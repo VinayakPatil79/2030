@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shree Lodging — Strategic Growth & Differentiation Report</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron:       #C4611A;
+    --saffron-light: #F0A054;
+    --saffron-pale:  #FDF0E6;
+    --forest:        #1A3A2A;
+    --forest-light:  #2D5C3F;
+    --forest-pale:   #E8F0EB;
+    --gold:          #B8860B;
+    --gold-light:    #D4A820;
+    --gold-pale:     #FEF8E4;
+    --stone:         #F8F4EF;
+    --dark:          #1C1C1C;
+    --mid:           #5A5A5A;
+    --light:         #9A9A9A;
+    --divider:       #E4DDD6;
+    --white:         #FFFFFF;
+    --red-soft:      #C0392B;
+    --blue-soft:     #2471A3;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: var(--stone);
+    color: var(--dark);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--forest);
+    color: var(--white);
+    padding: 60px 48px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(196,97,26,0.18);
+    pointer-events: none;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: 60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(184,134,11,0.12);
+    pointer-events: none;
+  }
+  .cover-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--saffron-light);
+    margin-bottom: 16px;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .cover h1 span { color: var(--gold-light); }
+  .cover-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 32px;
+    max-width: 520px;
+  }
+  .cover-meta {
+    display: flex; gap: 32px; flex-wrap: wrap;
+  }
+  .cover-meta-item { }
+  .cover-meta-item .label {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 2px;
+  }
+  .cover-meta-item .value {
+    font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.9);
+  }
+  .cover-divider {
+    width: 60px; height: 3px;
+    background: var(--saffron);
+    margin: 28px 0;
+  }
+
+  /* ── CONTAINER ── */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+
+  /* ── COMPETITIVE ALERT ── */
+  .comp-alert {
+    background: #FEF8E4;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+    padding: 24px 28px;
+    margin: 36px 0;
+  }
+  .comp-alert h3 {
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .comp-alert p { font-size: 14px; line-height: 1.7; color: var(--dark); }
+  .comp-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 16px; margin-top: 20px;
+  }
+  .comp-col { }
+  .comp-col h4 {
+    font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .comp-col.them h4 { color: var(--red-soft); }
+  .comp-col.you  h4 { color: var(--forest-light); }
+  .comp-col ul { list-style: none; padding: 0; }
+  .comp-col li {
+    font-size: 13px; line-height: 1.6;
+    padding: 4px 0 4px 16px;
+    position: relative;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .comp-col li::before {
+    content: '→';
+    position: absolute; left: 0;
+    font-size: 11px;
+  }
+  .comp-col.them li::before { color: var(--red-soft); }
+  .comp-col.you  li::before { color: var(--forest-light); }
+
+  /* ── SECTION HEADERS ── */
+  .section { padding: 48px 0 8px; }
+  .section-number {
+    font-size: 11px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--saffron);
+    margin-bottom: 8px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-number::after {
+    content: ''; flex: 1; height: 1px;
+    background: var(--divider); display: block;
+  }
+  .section h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 30px; font-weight: 700;
+    line-height: 1.25; margin-bottom: 10px;
+  }
+  .section-intro {
+    font-size: 15px; color: var(--mid);
+    max-width: 680px; line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  /* ── SITE PLAN ── */
+  .site-plan-wrap {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+  .site-plan-title {
+    font-size: 12px; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--mid);
+    margin-bottom: 16px;
+  }
+
+  /* ── PHASE CARDS ── */
+  .phase { margin-bottom: 28px; }
+  .phase-header {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 16px;
+  }
+  .phase-badge {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 20px;
+    white-space: nowrap;
+  }
+  .phase-badge.quick { background: var(--forest-pale); color: var(--forest); }
+  .phase-badge.medium { background: var(--saffron-pale); color: var(--saffron); }
+  .phase-badge.premium { background: var(--gold-pale); color: var(--gold); }
+  .phase-header h3 {
+    font-size: 17px; font-weight: 600;
+  }
+  .phase-budget {
+    margin-left: auto; font-size: 13px;
+    font-weight: 700; color: var(--mid);
+    white-space: nowrap;
+  }
+  .recs-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  @media (max-width: 600px) { .recs-grid, .comp-grid { grid-template-columns: 1fr; } }
+  .rec-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 20px 22px;
+    border: 1px solid var(--divider);
+    transition: box-shadow 0.2s;
+  }
+  .rec-card:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.1); }
+  .rec-card .icon {
+    font-size: 22px; margin-bottom: 8px; display: block;
+  }
+  .rec-card h4 {
+    font-size: 15px; font-weight: 600; margin-bottom: 6px;
+  }
+  .rec-card p {
+    font-size: 13px; color: var(--mid); line-height: 1.65;
+  }
+  .rec-card .est {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; margin-top: 10px; color: var(--saffron);
+  }
+  .rec-card.highlight {
+    border-color: var(--gold);
+    background: var(--gold-pale);
+  }
+  .rec-card.highlight h4 { color: var(--forest); }
+
+  /* ── FULL-WIDTH CARD ── */
+  .full-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 22px 26px;
+    border: 1px solid var(--divider);
+    margin-bottom: 14px;
+  }
+  .full-card .card-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 10px;
+  }
+  .full-card .card-icon { font-size: 20px; }
+  .full-card h4 { font-size: 16px; font-weight: 600; }
+  .full-card p { font-size: 13.5px; color: var(--mid); line-height: 1.7; }
+  .full-card .tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 3px 9px;
+    border-radius: 12px; margin-right: 6px; margin-top: 8px;
+  }
+  .tag-green  { background: var(--forest-pale); color: var(--forest); }
+  .tag-orange { background: var(--saffron-pale); color: var(--saffron); }
+  .tag-gold   { background: var(--gold-pale); color: var(--gold); }
+  .tag-blue   { background: #EAF2FB; color: var(--blue-soft); }
+
+  /* ── SENSES GRID ── */
+  .senses-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 12px; margin-bottom: 28px;
+  }
+  @media (max-width: 700px) { .senses-grid { grid-template-columns: 1fr 1fr; } }
+  .sense-card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 18px 14px;
+    border: 1px solid var(--divider);
+    text-align: center;
+  }
+  .sense-card .sense-icon { font-size: 26px; margin-bottom: 8px; }
+  .sense-card .sense-name {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--saffron);
+    margin-bottom: 6px;
+  }
+  .sense-card p { font-size: 12px; color: var(--mid); line-height: 1.55; }
+
+  /* ── WATER SECTION ── */
+  .water-flow {
+    display: flex; gap: 0; margin-bottom: 28px;
+    overflow-x: auto;
+  }
+  .water-step {
+    flex: 1; min-width: 130px;
+    background: var(--white);
+    border: 1px solid var(--divider);
+    padding: 20px 16px;
+    position: relative; text-align: center;
+  }
+  .water-step:not(:last-child)::after {
+    content: '→';
+    position: absolute; right: -14px; top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px; color: var(--saffron);
+    z-index: 1;
+  }
+  .water-step:first-child { border-radius: 10px 0 0 10px; }
+  .water-step:last-child  { border-radius: 0 10px 10px 0; }
+  .water-step .wicon { font-size: 24px; margin-bottom: 6px; }
+  .water-step h5 { font-size: 12px; font-weight: 700; margin-bottom: 4px; }
+  .water-step p  { font-size: 11px; color: var(--mid); line-height: 1.5; }
+
+  /* ── PRIORITY MATRIX ── */
+  .priority-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 14px; margin-bottom: 40px;
+  }
+  @media (max-width: 640px) { .priority-grid { grid-template-columns: 1fr; } }
+  .priority-col {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--divider);
+    overflow: hidden;
+  }
+  .priority-col-header {
+    padding: 16px 20px 14px;
+    font-size: 12px; font-weight: 700;
+    letter-spacing: 2px; text-transform: uppercase;
+  }
+  .priority-col-header.now    { background: var(--forest); color: var(--white); }
+  .priority-col-header.six    { background: var(--saffron); color: var(--white); }
+  .priority-col-header.twelve { background: var(--gold); color: var(--white); }
+  .priority-col-body { padding: 16px 20px; }
+  .priority-item {
+    font-size: 13px; padding: 7px 0;
+    border-bottom: 1px solid var(--divider);
+    line-height: 1.5;
+    display: flex; gap: 8px;
+  }
+  .priority-item:last-child { border-bottom: none; }
+  .priority-item .check { flex-shrink: 0; }
+
+  /* ── REVENUE BOX ── */
+  .revenue-box {
+    background: var(--forest);
+    color: var(--white);
+    border-radius: 12px;
+    padding: 32px 36px;
+    margin-bottom: 40px;
+  }
+  .revenue-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--gold-light);
+  }
+  .revenue-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 600px) { .revenue-grid { grid-template-columns: 1fr 1fr; } }
+  .revenue-item .label {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); margin-bottom: 4px;
+  }
+  .revenue-item .amount {
+    font-size: 22px; font-weight: 700; color: var(--white);
+  }
+  .revenue-item .freq {
+    font-size: 11px; color: rgba(255,255,255,0.45);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--forest);
+    color: rgba(255,255,255,0.5);
+    padding: 28px 48px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.8;
+    margin-top: 60px;
+  }
+  .footer strong { color: rgba(255,255,255,0.85); }
+
+  /* ── UTILITY ── */
+  .divider { height: 1px; background: var(--divider); margin: 32px 0; }
+  .callout {
+    background: var(--saffron-pale);
+    border-left: 4px solid var(--saffron);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin: 16px 0 24px;
+    font-size: 14px; color: var(--dark);
+    line-height: 1.7;
+  }
+  .callout strong { color: var(--saffron); }
+  .section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--saffron) 0%, transparent 100%);
+    margin: 48px 0 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ COVER ══════════════════ -->
+<div class="cover">
+  <div class="cover-tag">Strategic Consultant Report · June 2026</div>
+  <h1>Shree <span>Lodging</span><br>Growth Blueprint</h1>
+  <div class="cover-sub">
+    A comprehensive architecture, hospitality &amp; business strategy report for Shree Lodging, Sadale Madale Road, Kolhapur — covering land utilization, brand differentiation, and smart water management.
+  </div>
+  <div class="cover-divider"></div>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <div class="label">Property</div>
+      <div class="value">Shree Lodging, Kolhapur</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Location</div>
+      <div class="value">Sadale Madale Road · ~10 km Mahalaxmi · ~14 km Jotiba</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Primary Markets</div>
+      <div class="value">Couples · Pilgrims · Navratri / Festival Season</div>
+    </div>
+    <div class="cover-meta-item">
+      <div class="label">Utilization</div>
+      <div class="value">~50% land unused — significant growth headroom</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ BODY ══════════════════ -->
+<div class="container">
+
+  <!-- ── COMPETITIVE INTELLIGENCE ── -->
+  <div class="comp-alert">
+    <h3>⚠ Competitive Intelligence — Know Your Landscape First</h3>
+    <p>
+      Your primary competitor on the same road is <strong>Nisarg Resort</strong> (Sadale Madale, Jotiba Road) —
+      rated <strong>4.4/5 with 1,938+ reviews</strong>, ranked #3 of all Kolhapur hotels on TripAdvisor.
+      They own the "eco-luxury + Maharashtrian heritage" positioning at ₹5,406+/night.
+      Before building your strategy, understand where Nisarg is strong — and where they leave gaps.
+    </p>
+    <div class="comp-grid">
+      <div class="comp-col them">
+        <h4>🏨 What Nisarg Has</h4>
+        <ul>
+          <li>Stone cottages, Bali-theme villas, vintage truck house</li>
+          <li>In-house restaurant "Zuluk" (Maharashtrian cuisine)</li>
+          <li>Trekking, cycling, stone painting, pottery, dorodango</li>
+          <li>Conference hall + event facilities</li>
+          <li>Private valley-view balconies + BBQ</li>
+          <li>Live singing / entertainment</li>
+          <li>Pet-friendly + playground</li>
+        </ul>
+      </div>
+      <div class="comp-col you">
+        <h4>✅ Gaps Nisarg Doesn't Fill</h4>
+        <ul>
+          <li>No explicit pilgrim hospitality or Darshan packages</li>
+          <li>Expensive — not accessible to pilgrim groups</li>
+          <li>Not positioned for 15-20 person pilgrim groups</li>
+          <li>No Navratri / festival group specials visible</li>
+          <li>Formal brand — less "homely" feeling</li>
+          <li>No budget-conscious couple options</li>
+          <li>Your farm = more authentic rural experience</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:18px; margin-bottom:0;">
+      <strong>Strategic Verdict:</strong> Don't fight Nisarg at their game. Own what they ignore — <strong>Devotional Tourism + Farm Comfort</strong>. You have two loyal customer bases they'll never capture: pilgrims and budget-conscious couples. Build everything around serving those better than anyone on this road.
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 1: LAND UTILIZATION
+       ════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">Section 01</div>
+    <h2>Unlocking the 50% — What to Build on Unused Land</h2>
+    <p class="section-intro">
+      Based on your site plan, the main built area sits on the left side of the plot with a parking shed upper-right
+      and a road-facing entrance. The large open space between the main building, parking area, and the right boundary
+      is your canvas. Here is a phased approach — starting with zero-disruption, low-cost additions and scaling up.
+    </p>
+
+    <!-- Site Plan SVG -->
+    <div class="site-plan-wrap">
+      <div class="site-plan-title">📐 Your Site — Proposed Zone Allocation</div>
+      <svg viewBox="0 0 780 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;">
+        <!-- Background -->
+        <rect width="780" height="360" fill="#F8F4EF" rx="6"/>
+
+        <!-- Plot boundary -->
+        <rect x="20" y="30" width="640" height="290" fill="none" stroke="#9A9A9A" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+
+        <!-- Road -->
+        <rect x="20" y="305" width="640" height="28" fill="#2D5C3F" rx="0 0 4 4" opacity="0.85"/>
+        <text x="340" y="322" fill="#fff" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">NORMAL ROAD (ENTRANCE)</text>
+
+        <!-- Road to Jotiba (right edge) -->
+        <line x1="680" y1="30" x2="750" y2="0" stroke="#2D5C3F" stroke-width="2"/>
+        <line x1="700" y1="30" x2="780" y2="0" stroke="#2D5C3F" stroke-width="2"/>
+        <text x="730" y="80" fill="#2D5C3F" font-family="Inter,sans-serif" font-size="10" text-anchor="middle" font-weight="600">Road to</text>
+        <text x="730" y="93" fill="#2D5C3F" font-family="Inter,sans-serif" font-size="10" text-anchor="middle" font-weight="600">Jotiba</text>
+
+        <!-- EXISTING: Main building (left side) -->
+        <rect x="35" y="55" width="280" height="160" fill="#1A3A2A" rx="4"/>
+        <text x="175" y="130" fill="#fff" font-family="Inter,sans-serif" font-size="13" font-weight="600" text-anchor="middle">Built Area</text>
+        <text x="175" y="148" fill="rgba(255,255,255,0.6)" font-family="Inter,sans-serif" font-size="10" text-anchor="middle">GF + 1F + 2F Rooms</text>
+
+        <!-- EXISTING: Reception small -->
+        <rect x="35" y="220" width="70" height="40" fill="#1A3A2A" rx="3" opacity="0.8"/>
+        <text x="70" y="244" fill="#fff" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">Reception</text>
+
+        <!-- EXISTING: Entrance block -->
+        <rect x="112" y="220" width="200" height="40" fill="#2D5C3F" rx="3"/>
+        <text x="212" y="244" fill="#fff" font-family="Inter,sans-serif" font-size="11" font-weight="600" text-anchor="middle">Entrance / Lobby</text>
+
+        <!-- EXISTING: Parking shed (upper right of current area) -->
+        <rect x="350" y="55" width="150" height="95" fill="#1A3A2A" rx="4" opacity="0.75"/>
+        <text x="425" y="101" fill="#fff" font-family="Inter,sans-serif" font-size="12" font-weight="600" text-anchor="middle">Parking Shed</text>
+        <text x="425" y="116" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">Existing</text>
+
+        <!-- EXISTING: Elevated water tank -->
+        <rect x="350" y="175" width="80" height="35" fill="#1A3A2A" rx="3" opacity="0.6"/>
+        <text x="390" y="196" fill="#fff" font-family="Inter,sans-serif" font-size="8.5" text-anchor="middle">Water Tank</text>
+
+        <!-- Green columns (left) -->
+        <rect x="28" y="55" width="8" height="210" fill="#4CAF50" rx="2"/>
+        <!-- Green columns (right of existing) -->
+        <rect x="318" y="55" width="8" height="160" fill="#4CAF50" rx="2"/>
+
+        <!-- ══ PROPOSED ZONES ══ -->
+
+        <!-- Zone A: Event Lawn (center-right, large open space) -->
+        <rect x="455" y="55" width="185" height="160" fill="#F0A054" rx="6" opacity="0.18"/>
+        <rect x="455" y="55" width="185" height="160" fill="none" stroke="#C4611A" stroke-width="1.5" stroke-dasharray="5,3" rx="6"/>
+        <text x="547" y="118" fill="#C4611A" font-family="Inter,sans-serif" font-size="12" font-weight="700" text-anchor="middle">A</text>
+        <text x="547" y="133" fill="#C4611A" font-family="Inter,sans-serif" font-size="10" text-anchor="middle">Event Lawn +</text>
+        <text x="547" y="146" fill="#C4611A" font-family="Inter,sans-serif" font-size="10" text-anchor="middle">Canopy / Shamiana</text>
+
+        <!-- Zone B: Cottages (lower center) -->
+        <rect x="350" y="230" width="165" height="65" fill="#2D5C3F" rx="6" opacity="0.12"/>
+        <rect x="350" y="230" width="165" height="65" fill="none" stroke="#2D5C3F" stroke-width="1.5" stroke-dasharray="5,3" rx="6"/>
+        <text x="432" y="258" fill="#1A3A2A" font-family="Inter,sans-serif" font-size="12" font-weight="700" text-anchor="middle">B</text>
+        <text x="432" y="272" fill="#1A3A2A" font-family="Inter,sans-serif" font-size="10" text-anchor="middle">2–3 Farm Cottages</text>
+
+        <!-- Zone C: Activity zone / Garden (lower left open space) -->
+        <rect x="35" y="270" width="280" height="28" fill="#B8860B" rx="6" opacity="0.12"/>
+        <rect x="35" y="270" width="280" height="28" fill="none" stroke="#B8860B" stroke-width="1.5" stroke-dasharray="5,3" rx="6"/>
+        <text x="175" y="288" fill="#8B6914" font-family="Inter,sans-serif" font-size="10" font-weight="700" text-anchor="middle">C — Bonfire Circle + Garden + Hammock Area</text>
+
+        <!-- Zone D: Plunge Pool (between main building and zone A) -->
+        <rect x="455" y="222" width="165" height="68" fill="#2471A3" rx="6" opacity="0.1"/>
+        <rect x="455" y="222" width="165" height="68" fill="none" stroke="#2471A3" stroke-width="1.5" stroke-dasharray="5,3" rx="6"/>
+        <text x="537" y="250" fill="#1A5276" font-family="Inter,sans-serif" font-size="12" font-weight="700" text-anchor="middle">D</text>
+        <text x="537" y="264" fill="#1A5276" font-family="Inter,sans-serif" font-size="10" text-anchor="middle">Plunge Pool</text>
+        <text x="537" y="277" fill="#1A5276" font-family="Inter,sans-serif" font-size="9" text-anchor="middle">(Phase 3)</text>
+
+        <!-- LEGEND -->
+        <rect x="20" y="340" width="8" height="8" fill="#1A3A2A" rx="1"/>
+        <text x="34" y="349" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">Existing</text>
+        <rect x="100" y="340" width="8" height="8" fill="#C4611A" rx="1" opacity="0.4"/>
+        <text x="114" y="349" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">A — Event Lawn</text>
+        <rect x="230" y="340" width="8" height="8" fill="#2D5C3F" rx="1" opacity="0.4"/>
+        <text x="244" y="349" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">B — Cottages</text>
+        <rect x="340" y="340" width="8" height="8" fill="#B8860B" rx="1" opacity="0.4"/>
+        <text x="354" y="349" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">C — Garden/Bonfire</text>
+        <rect x="480" y="340" width="8" height="8" fill="#2471A3" rx="1" opacity="0.4"/>
+        <text x="494" y="349" font-family="Inter,sans-serif" font-size="9" fill="#5A5A5A">D — Plunge Pool</text>
+      </svg>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-badge quick">Phase 1 — Quick Wins</div>
+        <h3>Immediate Impact, Minimal Cost</h3>
+        <div class="phase-budget">₹50,000 – ₹2 Lakh</div>
+      </div>
+      <div class="recs-grid">
+        <div class="rec-card">
+          <span class="icon">🔥</span>
+          <h4>Bonfire Circle (Zone C)</h4>
+          <p>A stone-circle bonfire pit with 6–8 log/wooden benches around it. Couples love this for evenings. During Navratri, add a garba space around it. Low cost, very high emotional impact — guests will post reels from here.</p>
+          <div class="est">₹30,000 – ₹50,000 · Done in 2 weeks</div>
+        </div>
+        <div class="rec-card">
+          <span class="icon">🌿</span>
+          <h4>Hammock Garden</h4>
+          <p>4–6 hammocks strung between existing/new trees in Zone C. Add fairy/Edison string lights overhead. Instantly Instagram-worthy — couples, solo travelers, and families all love hammock corners. No construction needed.</p>
+          <div class="est">₹20,000 – ₹40,000</div>
+        </div>
+        <div class="rec-card">
+          <span class="icon">🍵</span>
+          <h4>Outdoor Chulha-Chai Corner</h4>
+          <p>A proper outdoor kitchen with a traditional clay chulha (wood-fire stove), earthen cups, serving zunka-bhakar, bhakri, and ginger chai. Authentic, zero-competition differentiator. Can charge ₹80–120 per person. Pilgrims and couples both love this.</p>
+          <div class="est">₹40,000 – ₹70,000</div>
+        </div>
+        <div class="rec-card">
+          <span class="icon">🌙</span>
+          <h4>Pathway & Mood Lighting</h4>
+          <p>Warm amber LED post lights along pathways + fairy lights overhead between trees. Switch all white fluorescent lights to warm white (3000K). This alone transforms how guests perceive the property at night — a ₹50K investment that looks like a ₹5L upgrade.</p>
+          <div class="est">₹40,000 – ₹80,000</div>
+        </div>
+        <div class="rec-card">
+          <span class="icon">🪑</span>
+          <h4>Outdoor Social Lawn</h4>
+          <p>A flat sitting area with low stone/concrete platforms, cushions, and shade-net canopy. For group bookings (pilgrim groups of 15–20), this is their gathering space for meals, bhajans, and socializing. Can seat 25 people outdoors comfortably.</p>
+          <div class="est">₹60,000 – ₹1.2 Lakh</div>
+        </div>
+        <div class="rec-card highlight">
+          <span class="icon">🛕</span>
+          <h4>Darshan Coordination Service</h4>
+          <p>Zero infrastructure needed. Partner with 2 local auto/taxi drivers for Jotiba &amp; Mahalaxmi drops. Create a "Darshan Timing Board" at reception. Offer queue-booking assistance and prasad-thali arrangement. <strong>Nobody on this road does this</strong> — it's your #1 unique selling point vs Nisarg.</p>
+          <div class="est">₹5,000 setup + rev-share with drivers</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-badge medium">Phase 2 — Growth Add-ons</div>
+        <h3>New Revenue Streams, 6–18 Months</h3>
+        <div class="phase-budget">₹2 Lakh – ₹12 Lakh</div>
+      </div>
+      <div class="recs-grid">
+        <div class="rec-card">
+          <span class="icon">🏡</span>
+          <h4>2–3 Standalone Farm Cottages (Zone B)</h4>
+          <p>Build 2–3 compact cottages (12×14 ft each) in the open lower-right zone. Circular or simple rectangular — traditional red-brick or Kolhapuri stone finish. AC + attached washroom. These can command ₹2,000–3,500/night vs your main building rooms. The feeling of "private space" is what couples pay premium for.</p>
+          <div class="est">₹2.5 – ₹4.5 Lakh per cottage</div>
+        </div>
+        <div class="rec-card">
+          <span class="icon">🎪</span>
+          <h4>Event Lawn with Canopy (Zone A)</h4>
+          <p>Level the zone A land, lay grass or paver-block, and install a retractable shamiana or permanent shade structure (6m × 12m). For pilgrim groups doing pooja, for Navratri celebrations, for small weddings and family functions. One event can earn ₹15,000–40,000. Events bring 40–60 people who become future room bookings.</p>
+          <div class="est">₹1.5 – ₹4 Lakh</div>
+        </div>
+        <div class="rec-card">
+          <span class="icon">🏸</span>
+          <h4>Activity Zone (behind cottages)</h4>
+          <p>Badminton court (concrete/mat floor + net), carrom + chess corner with overhead shade, a small kids' play area (swings + slide). Families staying for 2 nights need activities to fill the day. This is what makes them extend their stay. Also: yoga mat corner for morning use.</p>
+          <div class="est">₹80,000 – ₹1.5 Lakh</div>
+        </div>
+        <div class="rec-card">
+          <span class="icon">🍽</span>
+          <h4>Upgrade Kitchen → Proper Meals</h4>
+          <p>Expand the small kitchen to serve Maharashtrian breakfast + dinner — even a limited menu (3 items per meal). Saoji chicken, zunka-bhakar, puran poli. This is your biggest gap vs Nisarg. Guests currently leave property for meals (revenue loss + negative experience). Even a simple tiffin-service model works.</p>
+          <div class="est">₹1.5 – ₹3 Lakh for kitchen + ₹30K for equipment</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase">
+      <div class="phase-header">
+        <div class="phase-badge premium">Phase 3 — Premium Investment</div>
+        <h3>Signature Features, 18–36 Months</h3>
+        <div class="phase-budget">₹10 Lakh+</div>
+      </div>
+      <div class="recs-grid">
+        <div class="rec-card highlight">
+          <span class="icon">🏊</span>
+          <h4>Small Plunge Pool (Zone D)</h4>
+          <p>A 12×16 ft plunge pool or small infinity pool in Zone D. This is the <strong>single biggest differentiation move</strong> you can make in this area. Nisarg does not have a pool. Couples specifically seek "resort with pool" on booking platforms. Can charge ₹300–500/person pool access or include in premium room packages.</p>
+          <div class="est">₹7 – ₹14 Lakh built + maintenance</div>
+        </div>
+        <div class="rec-card">
+          <span class="icon">🎭</span>
+          <h4>Banquet Hall for 100+ People</h4>
+          <p>A semi-open or enclosed banquet space for large pilgrim groups, weddings, and corporate events. Kolhapur is a major events destination. Large pilgrim jathas (groups) visiting Jotiba or Mahalaxmi temples need quality accommodation + gathering space — something no one serves well in this price range.</p>
+          <div class="est">₹12 – ₹22 Lakh</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 2: BRAND DIFFERENTIATION
+       ════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">Section 02</div>
+    <h2>Stand Out from the Crowd — Aesthetics &amp; Subconscious Advantages</h2>
+    <p class="section-intro">
+      Differentiation is about more than what you offer — it's about how guests feel before they check in, the moment they arrive, and what they remember after they leave. Here is a full strategy across visual identity, sensory design, and target-segment anchoring.
+    </p>
+
+    <!-- 5 Senses -->
+    <div class="site-plan-title" style="font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-bottom:14px;">THE 5-SENSE STRATEGY — What Guests Experience Before They Think</div>
+    <div class="senses-grid">
+      <div class="sense-card">
+        <div class="sense-icon">👁</div>
+        <div class="sense-name">Sight</div>
+        <p>Warm amber lighting on pathways. Traditional wada-style entrance gate. Kolhapuri art murals on outer walls. No harsh white fluorescents.</p>
+      </div>
+      <div class="sense-card">
+        <div class="sense-icon">👃</div>
+        <div class="sense-name">Smell</div>
+        <p>Mogra/jasmine creepers at entrance gate. Sandalwood or vetiver reed diffuser at reception. Udabatti near puja corner. Scent builds memory.</p>
+      </div>
+      <div class="sense-card">
+        <div class="sense-icon">👂</div>
+        <div class="sense-name">Sound</div>
+        <p>Soft sitar or bansuri instrumental playing at reception (not loud — background). During Navratri, add devotional playlist. During off-season, nature sounds.</p>
+      </div>
+      <div class="sense-card">
+        <div class="sense-icon">👅</div>
+        <div class="sense-name">Taste</div>
+        <p>Kokum sherbet or masala chai as welcome drink — not a packaged water bottle. This gesture costs ₹15 per guest and is mentioned in 40% of reviews when done right.</p>
+      </div>
+      <div class="sense-card">
+        <div class="sense-icon">✋</div>
+        <div class="sense-name">Touch</div>
+        <p>White bedsheets only — never patterned/colored. White signals cleanliness. Fresh pressed sheets are a premium perception hack that costs nothing extra.</p>
+      </div>
+    </div>
+
+    <!-- Identity -->
+    <div class="full-card">
+      <div class="card-header">
+        <div class="card-icon">🚪</div>
+        <h4>Entrance Gate Makeover — The First 10 Seconds</h4>
+      </div>
+      <p>
+        Your entrance off the normal road is the handshake before the conversation. Currently it's functional — but it should be <em>memorable</em>.
+        Invest in a traditional Kolhapuri-style arched gate: stone or brick pillars, a carved name plate "Shree Lodging" in Devanagari + English,
+        warm LED diya-style post lamps on both sides, and a creeper plant (mogra or bougainvillea) trained along the arch.
+        This takes your property from "a lodging off the road" to "a destination you arrive at."
+        Cost: ₹80,000 – ₹1.5 Lakh. Impact: Priceless — this is what guests photograph when they post about you.
+      </p>
+      <span class="tag tag-orange">High Visual Impact</span>
+      <span class="tag tag-green">1–2 Month Project</span>
+    </div>
+
+    <div class="full-card">
+      <div class="card-header">
+        <div class="card-icon">🎨</div>
+        <h4>Kolhapuri Identity Murals — Own Your Local Story</h4>
+      </div>
+      <p>
+        Commission a local Kolhapuri artist to paint large cultural murals on your outer boundary walls and main building exterior.
+        Subject suggestions: Mahalaxmi temple silhouette, Kolhapuri chappal motifs, Shahu Maharaj's Rajwada,
+        traditional warli-style patterns with temple patterns. Keep them artistic, NOT overtly religious.
+        Nisarg does "eco-heritage" — your brand is "Kolhapuri roots." This is authentically yours because you are from here.
+        A local muralist charges ₹200–500/sq. ft. Budget: ₹60,000 – ₹1.5 Lakh for significant murals.
+      </p>
+      <span class="tag tag-orange">Brand Signature</span>
+      <span class="tag tag-blue">Instagram Content Machine</span>
+    </div>
+
+    <div class="full-card" style="border-color:var(--forest);background:var(--forest-pale);">
+      <div class="card-header">
+        <div class="card-icon">🛕</div>
+        <h4>The Pilgrim Package — Your Exclusive USP</h4>
+      </div>
+      <p>
+        <strong>Create India's first "Jotiba–Mahalaxmi Darshan Package"</strong> — a bundled stay that includes:
+        accommodation + arranged darshan (queue booking/VIP pass assistance) at both Jotiba and Mahalaxmi temples +
+        temple-prasad meal (puran poli, sheera, fruit) delivered to room + puja samaan kit in room (kumkum, agarbatti, camphor) +
+        morning aarti wake-up call.
+        Price this at ₹200–300 above your normal room tariff.
+        This can be offered on MakeMyTrip, Goibibo, and Booking.com as a distinct "package" — it will appear in searches for "Jotiba temple stay" and "Mahalaxmi temple stay."
+        Nisarg will never copy this because it's not their brand. It is absolutely yours.
+      </p>
+      <span class="tag tag-green">Zero Competition</span>
+      <span class="tag tag-gold">High Seasonality ROI</span>
+      <span class="tag tag-blue">OTA Listing Advantage</span>
+    </div>
+
+    <div class="full-card">
+      <div class="card-header">
+        <div class="card-icon">💑</div>
+        <h4>Couples' Corner — Convert Your Existing Strength</h4>
+      </div>
+      <p>
+        You already have couples as your base footfall. Give them reasons to pay more and come back.
+        Create a "Couple's Garden Nook" in Zone C — a pergola with a 2-seater swing bench, fairy lights, and flowering plants around it.
+        Offer optional add-ons at booking: rose petal bed decoration (₹300), candle light dinner setup (₹800), anniversary/honeymoon surprise box with local sweets + a handwritten welcome note.
+        WhatsApp your past couple guests before Valentine's Day, New Year's, and Ganpati with a special package.
+        Your couple repeat rate can double with just these touches.
+      </p>
+      <span class="tag tag-orange">Revenue Add-on</span>
+      <span class="tag tag-blue">Repeat Booking Driver</span>
+    </div>
+
+    <div class="full-card">
+      <div class="card-header">
+        <div class="card-icon">📱</div>
+        <h4>Digital Presence Overhaul — You Don't Exist If Google Can't See You</h4>
+      </div>
+      <p>
+        Your competitor Nisarg has 1,938 reviews. They own the search results for "resort near Jotiba temple" and
+        "resort Sadale Madale." You need to attack this gap immediately.
+        <br><br>
+        <strong>Step 1:</strong> Hire a local photographer for a half-day shoot (₹5,000–8,000) — rooms, outdoor area, food, exterior at golden hour.
+        <br>
+        <strong>Step 2:</strong> List on Google My Business (free), TripAdvisor (free), MakeMyTrip, Goibibo, Booking.com, and Airbnb.
+        <br>
+        <strong>Step 3:</strong> Start an Instagram account with Reels: "A night at Shree Lodging," "Jotiba darshan from our resort," "Morning chai at our farm."
+        <br>
+        <strong>Step 4:</strong> Ask every guest (politely, at checkout) to leave a Google review. Add a QR code to your wall pointing to your Google review page.
+        <br>
+        <strong>Step 5:</strong> Respond to every single review — good or bad. This is a ranking signal.
+      </p>
+      <span class="tag tag-green">Immediate Priority</span>
+      <span class="tag tag-gold">Free to ₹10,000 to start</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 3: WATER MANAGEMENT
+       ════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">Section 03</div>
+    <h2>Smart Water — Solve the Tree Problem &amp; Future-Proof Your Resort</h2>
+    <p class="section-intro">
+      Kolhapur receives 600–800mm of annual rainfall — more than most of India. You are sitting on a water abundance opportunity you are not capturing. Here is a layered, practical system for water storage, reuse, and tree irrigation that will cost far less than buying water long-term.
+    </p>
+
+    <!-- Flow diagram -->
+    <div class="water-flow">
+      <div class="water-step">
+        <div class="wicon">🌧</div>
+        <h5>Rain Falls</h5>
+        <p>Monsoon water hits rooftop & ground surface</p>
+      </div>
+      <div class="water-step">
+        <div class="wicon">🏠</div>
+        <h5>Catchment</h5>
+        <p>Roof gutters + first-flush diverter fitted</p>
+      </div>
+      <div class="water-step">
+        <div class="wicon">🪨</div>
+        <h5>Underground Tank</h5>
+        <p>20,000L RCC sump below ground level</p>
+      </div>
+      <div class="water-step">
+        <div class="wicon">💧</div>
+        <h5>Drip System</h5>
+        <p>Timer-controlled drip lines to all trees</p>
+      </div>
+      <div class="water-step">
+        <div class="wicon">🌳</div>
+        <h5>Trees Watered</h5>
+        <p>60–70% water saved vs flood irrigation</p>
+      </div>
+    </div>
+
+    <div class="full-card" style="border-color:var(--blue-soft);">
+      <div class="card-header">
+        <div class="card-icon">🌧</div>
+        <h4>Priority 1 — Rooftop Rainwater Harvesting System</h4>
+      </div>
+      <p>
+        <strong>The biggest single win for your water problem.</strong>
+        Your 3-floor building has a significant rooftop area (plus parking shed roof).
+        Install gutters along all roof edges → downpipes → a first-flush diverter (to discard the first 20-30L of dirty rain) →
+        underground RCC sump of 20,000–30,000 liters.
+        At Kolhapur's 650mm average annual rainfall, a 200 sq.meter catchment yields approximately 130,000 liters per year —
+        enough for all your tree irrigation with water to spare for toilet flushing and cleaning.
+        <br><br>
+        You already have an elevated water tank. Connect the underground sump to it via a small submersible pump
+        (runs on your solar power). This means essentially free water for trees.
+      </p>
+      <span class="tag tag-blue">Most Impactful Step</span>
+      <span class="tag tag-green">₹1.2 – ₹2 Lakh installed</span>
+      <span class="tag tag-gold">ROI in 2–3 years</span>
+    </div>
+
+    <div class="full-card">
+      <div class="card-header">
+        <div class="card-icon">💧</div>
+        <h4>Priority 2 — Drip Irrigation for All Trees</h4>
+      </div>
+      <p>
+        Replace any flood or hose-pipe watering with a drip irrigation system connected to your elevated water tank via a timer.
+        A drip emitter delivers 2–4 liters per hour directly to the tree root zone — <strong>60–70% more efficient than any other method.</strong>
+        Set the timer for early morning (5–7 AM) when evaporation is lowest.
+        You can automate this entirely — your manager doesn't need to remember to water anything.
+        For a property with 20–40 trees, this is a ₹25,000–50,000 one-time investment that saves hours of labor and significantly cuts water use.
+      </p>
+      <span class="tag tag-green">₹25,000 – ₹50,000</span>
+      <span class="tag tag-blue">Fully Automatable</span>
+    </div>
+
+    <div class="full-card">
+      <div class="card-header">
+        <div class="card-icon">♻</div>
+        <h4>Priority 3 — Grey Water Recycling for Tree Irrigation</h4>
+      </div>
+      <p>
+        Grey water is wastewater from your bathroom sinks and showers (not toilets). It contains trace soap and is safe
+        for tree and lawn irrigation after basic filtration.
+        A simple system for a small property like yours: separate grey water outlet from each bathroom floor → gravity-fed pipe
+        to a biofilter box (gravel, sand, charcoal layers, 1m × 0.5m) → filtered into a small holding tank → drip line to trees.
+        Each occupied room generates 40–80 liters of grey water per day.
+        At 8 rooms at 70% occupancy, that's 224–448 liters/day for your trees — for free.
+        <br><br>
+        Use biodegradable soaps (place them in rooms as a branded "eco touch") so the grey water doesn't harm soil.
+        The biodegradable soap itself becomes an interesting "eco resort" talking point with guests.
+      </p>
+      <span class="tag tag-green">₹30,000 – ₹70,000</span>
+      <span class="tag tag-blue">200–400L/day for trees</span>
+      <span class="tag tag-gold">Eco Brand Story</span>
+    </div>
+
+    <div class="recs-grid" style="margin-top:0;">
+      <div class="rec-card">
+        <span class="icon">🪴</span>
+        <h4>Mulching Around Trees</h4>
+        <p>Add a 3–4 inch layer of dry leaves, wood chips, or coconut husk around the base of every tree (0.5m radius). This reduces soil evaporation by 30–40% and means trees need watering less frequently. Virtually free — use garden waste from the property itself.</p>
+        <div class="est">Free – ₹2,000 for materials</div>
+      </div>
+      <div class="rec-card">
+        <span class="icon">🌊</span>
+        <h4>Farm Pond / Check Dam</h4>
+        <p>If you have a slight low-lying area in the unused land, a small farm pond (20×15 ft) collects monsoon surface runoff. It becomes a landscape feature too — add lotus plants, create a sitting area beside it. Dual function: water storage + visual feature that guests photograph. Maharashtra govt has subsidies available for farm ponds.</p>
+        <div class="est">₹80,000 – ₹1.5 Lakh</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 4: THIRD FLOOR EXPANSION
+       ════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">Section 04</div>
+    <h2>Third Floor Expansion — Building Up the Right Way</h2>
+    <p class="section-intro">
+      Adding rooms to the third floor is a capital-efficient move since you already have the structure below.
+      But do it thoughtfully — each room here should earn premium pricing and offer something the lower floors don't.
+    </p>
+
+    <div class="callout">
+      <strong>⚠ Critical First Step:</strong> Before any third-floor construction, get a licensed structural engineer to assess the existing foundation and column load capacity. The addition of rooms, water tanks, and solar panels means the original structure must be able to carry additional dead + live loads. Budget ₹8,000–15,000 for a structural assessment report. This is non-negotiable.
+    </div>
+
+    <div class="full-card">
+      <div class="card-header">
+        <div class="card-icon">🌅</div>
+        <h4>2–3 "Farm View" AC Rooms with Private Balconies</h4>
+      </div>
+      <p>
+        Each new third-floor room should have a mandatory private or semi-private balcony overlooking your farm and open land.
+        This is the USP of being higher up — the view. Make the balconies wide enough for 2 chairs + a small table.
+        Position balconies to face east or north (away from the road) for a cleaner, greener view.
+        Market these as "Farm Balcony Rooms" at a ₹500–1,000 premium above your second-floor AC rooms.
+        Couples specifically search for "balcony room" filters on booking platforms.
+      </p>
+      <span class="tag tag-orange">₹3,000–4,500/night potential</span>
+      <span class="tag tag-blue">High Booking Platform Visibility</span>
+    </div>
+
+    <div class="full-card" style="border-color:var(--gold);background:var(--gold-pale);">
+      <div class="card-header">
+        <div class="card-icon">⭐</div>
+        <h4>Create a "Sky Suite" — Your Flagship Room</h4>
+      </div>
+      <p>
+        Dedicate one of the new third-floor rooms to being your absolute premium offering.
+        Call it the "Sky Suite" or give it a Kolhapuri identity name — "Ambabai Suite" or "Suvarna Mahal."
+        Features: AC, king size bed, a private terrace (not just a balcony), premium bathroom with stand-alone freestanding tub or rain shower,
+        artisan Kolhapuri decor elements (handmade pottery, traditional lamps), a minibar with local products,
+        and complimentary welcome setup (flowers, local sweets).
+        Price this at ₹4,000–6,500/night.
+        Couples celebrating anniversaries, small-budget honeymooners, and high-value devotees from Mumbai/Pune will book this.
+        Listing it creates a "price anchor" that makes your other rooms look like great value.
+      </p>
+      <span class="tag tag-gold">Price Anchor Effect</span>
+      <span class="tag tag-orange">₹4,000–6,500/night</span>
+      <span class="tag tag-green">Couples + Special Occasion Market</span>
+    </div>
+
+    <div class="full-card">
+      <div class="card-header">
+        <div class="card-icon">🌠</div>
+        <h4>Rooftop Lounge Area (Partial Open Terrace)</h4>
+      </div>
+      <p>
+        Retain a portion of the third-floor terrace (do not build rooms over the entire floor) as an open-air
+        rooftop lounge with low seating, string lights, and a simple beverage counter (herbal teas, juices, chai).
+        On clear nights, this becomes a stargazing spot — Kolhapur's outskirts have low light pollution.
+        Market it as a "sunset chai" spot available to all guests from 5:30–8:30 PM.
+        Events on the terrace (small birthday dinners, anniversary setups) can command ₹1,000–3,000 extra per booking.
+        You already have solar panels — the rooftop is partly utilized. Work around them to carve out 20–30 sq. meters of lounge space.
+      </p>
+      <span class="tag tag-blue">Shareable Experience</span>
+      <span class="tag tag-orange">Event Revenue</span>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       PRIORITY MATRIX
+       ════════════════════════════════════════════════════════ -->
+  <div class="section">
+    <div class="section-number">Action Plan</div>
+    <h2>What to Do — and When</h2>
+    <p class="section-intro">
+      Not everything needs to happen at once. Here is a ranked execution roadmap based on investment required, speed of impact, and revenue potential.
+    </p>
+    <div class="priority-grid">
+      <div class="priority-col">
+        <div class="priority-col-header now">🟢 Do NOW (0–2 Months)</div>
+        <div class="priority-col-body">
+          <div class="priority-item"><span class="check">✓</span><span>Switch all lights to warm white (3000K) LEDs everywhere</span></div>
+          <div class="priority-item"><span class="check">✓</span><span>Google My Business listing — add photos, hours, description</span></div>
+          <div class="priority-item"><span class="check">✓</span><span>Professional half-day photo shoot of property</span></div>
+          <div class="priority-item"><span class="check">✓</span><span>List on MakeMyTrip, Goibibo, Booking.com with Darshan Package</span></div>
+          <div class="priority-item"><span class="check">✓</span><span>Place mogra/jasmine plant at entrance</span></div>
+          <div class="priority-item"><span class="check">✓</span><span>Switch to white bedsheets in all rooms</span></div>
+          <div class="priority-item"><span class="check">✓</span><span>Welcome drink: kokum sherbet or masala chai for every guest</span></div>
+          <div class="priority-item"><span class="check">✓</span><span>Partner with 2 local auto drivers for temple runs</span></div>
+          <div class="priority-item"><span class="check">✓</span><span>Add mulch around all trees (free)</span></div>
+          <div class="priority-item"><span class="check">✓</span><span>Install drip irrigation system for trees</span></div>
+        </div>
+      </div>
+      <div class="priority-col">
+        <div class="priority-col-header six">🟡 6-Month Goals</div>
+        <div class="priority-col-body">
+          <div class="priority-item"><span class="check">→</span><span>Build bonfire circle + hammock garden (Zone C)</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Entrance gate makeover with traditional arch + lighting</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Outdoor chulha-chai corner operational</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Commission 2–3 Kolhapuri murals on outer walls</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Install rooftop rainwater harvesting + underground sump</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Launch Instagram with Reels content</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Navratri special group package designed + listed</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Event Lawn (Zone A) leveled + temporary shamiana</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Structural assessment for 3rd floor expansion</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Grey water recycling system to trees</span></div>
+        </div>
+      </div>
+      <div class="priority-col">
+        <div class="priority-col-header twelve">🔵 12-Month Goals</div>
+        <div class="priority-col-body">
+          <div class="priority-item"><span class="check">→</span><span>Build first 2 farm cottages (Zone B) — highest ROI addition</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Third floor expansion: 2 balcony rooms + 1 Sky Suite</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Rooftop lounge area + sunset chai experience</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Kitchen expansion for breakfast + dinner service</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Activity zone: badminton + kids area</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Farm pond / check dam in low-lying area</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Permanent event canopy on Zone A lawn</span></div>
+          <div class="priority-item"><span class="check">→</span><span>100+ Google reviews milestone (ask every guest)</span></div>
+          <div class="priority-item"><span class="check">→</span><span>Target: plunge pool planning + quote (Phase 3 start)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Revenue Estimates -->
+  <div class="revenue-box">
+    <h3>📊 Rough Revenue Uplift Potential (Conservative Estimates)</h3>
+    <div class="revenue-grid">
+      <div class="revenue-item">
+        <div class="label">2 Farm Cottages</div>
+        <div class="amount">₹9–14L</div>
+        <div class="freq">Per year at 65% occupancy</div>
+      </div>
+      <div class="revenue-item">
+        <div class="label">Event Lawn</div>
+        <div class="amount">₹3–6L</div>
+        <div class="freq">8–15 events/year</div>
+      </div>
+      <div class="revenue-item">
+        <div class="label">Darshan Packages</div>
+        <div class="amount">₹1.5–3L</div>
+        <div class="freq">Premium uplift on rooms</div>
+      </div>
+      <div class="revenue-item">
+        <div class="label">Sky Suite (3F)</div>
+        <div class="amount">₹6–10L</div>
+        <div class="freq">At 50–60% occupancy</div>
+      </div>
+    </div>
+    <p style="font-size:12px;color:rgba(255,255,255,0.4);margin-top:20px;">
+      * Estimates based on comparable properties in Maharashtra hospitality segment. Actual results depend on execution, seasonality, and marketing. These figures are directional, not guaranteed projections.
+    </p>
+  </div>
+
+  <!-- Final callout -->
+  <div class="callout" style="border-color:var(--forest);background:var(--forest-pale);">
+    <strong>The Overarching Strategy in One Line:</strong>
+    Nisarg Resort owns "eco-luxury heritage." You own "Devotional Comfort + Authentic Farm Hospitality."
+    Build everything — your packages, your aesthetics, your land use — around being the best place to stay for pilgrims visiting Jotiba &amp; Mahalaxmi,
+    AND the most intimate, beautiful farm getaway for couples. These two markets have almost zero overlap, giving you two full seasons.
+    Execute Phase 1 now. The rest will build on what you learn.
+  </div>
+
+</div><!-- /container -->
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<div class="footer">
+  <strong>Shree Lodging — Strategic Growth & Differentiation Report</strong><br>
+  Prepared as a consulting exercise based on property information, competitor intelligence, and hospitality best practices.<br>
+  All investment estimates are indicative — obtain local quotes before committing. Structural changes require licensed civil engineer approval.
+</div>
+
+</body>
+</html>
