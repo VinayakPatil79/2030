@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saudi Vision 2030 — Transport Business POV</title>
+<style>
+  :root {
+    --navy: #0A1628;
+    --navy-mid: #132340;
+    --navy-light: #1B3A5C;
+    --sky: #00B4D8;
+    --sky-dim: #007A94;
+    --gold: #F4A623;
+    --gold-dim: #C27D0E;
+    --green: #2ECC71;
+    --red: #E63946;
+    --white: #F0F4F8;
+    --grey: #8BA5BE;
+    --border: rgba(0,180,216,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--white);
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+  }
+  .nav-brand {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sky);
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.4rem;
+    list-style: none;
+  }
+  .nav-links a {
+    color: var(--grey);
+    text-decoration: none;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--sky); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,180,216,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,180,216,0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .hero-glow {
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,180,216,0.1) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+  .hero-headline {
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+  .hero-headline .accent { color: var(--gold); }
+  .hero-headline .accent-sky { color: var(--sky); }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--grey);
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    position: relative;
+  }
+
+  /* TRADE ROUTE SVG */
+  .trade-route-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    position: relative;
+  }
+  .trade-svg { width: 100%; }
+
+  /* HERO STATS ROW */
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+  }
+  .hero-stat {
+    background: rgba(27,58,92,0.5);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+    text-align: center;
+    min-width: 140px;
+  }
+  .hero-stat .num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--gold);
+    display: block;
+  }
+  .hero-stat .label {
+    font-size: 0.72rem;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-top: 0.2rem;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 5rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 0.7rem;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0.8rem;
+  }
+  .section-desc {
+    color: var(--grey);
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
+  }
+
+  /* DIVIDER */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* CARGO CARDS */
+  .cargo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .cargo-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.2rem;
+    cursor: pointer;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .cargo-card:hover {
+    border-color: var(--sky);
+    transform: translateY(-3px);
+  }
+  .cargo-card.active {
+    border-color: var(--gold);
+    background: rgba(244,166,35,0.07);
+  }
+  .cargo-icon { font-size: 2rem; margin-bottom: 0.6rem; display: block; }
+  .cargo-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  .cargo-vol {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .cargo-detail {
+    display: none;
+    background: rgba(0,180,216,0.06);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1rem;
+  }
+  .cargo-detail.show { display: block; }
+  .cargo-detail-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--sky);
+    margin-bottom: 0.6rem;
+  }
+  .cargo-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-top: 0.8rem;
+  }
+  .cargo-detail-item { font-size: 0.85rem; }
+  .cargo-detail-item .k { color: var(--grey); font-size: 0.72rem; text-transform: uppercase; }
+  .cargo-detail-item .v { color: var(--white); font-weight: 600; }
+
+  /* OPPORTUNITY FUNNEL */
+  .funnel-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+  }
+  .funnel-stage {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem;
+    transition: border-color 0.2s;
+  }
+  .funnel-stage:hover { border-color: var(--sky); }
+  .funnel-num {
+    background: var(--sky-dim);
+    color: var(--sky);
+    border-radius: 50%;
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .funnel-content h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .funnel-content p { font-size: 0.88rem; color: var(--grey); }
+  .funnel-tag {
+    display: inline-block;
+    margin-top: 0.4rem;
+    padding: 2px 8px;
+    background: rgba(244,166,35,0.12);
+    color: var(--gold);
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+
+  /* BUSINESS MODEL TABS */
+  .biz-tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  .biz-tab {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--navy-mid);
+    color: var(--grey);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  .biz-tab:hover { border-color: var(--sky); color: var(--sky); }
+  .biz-tab.active {
+    background: var(--sky);
+    border-color: var(--sky);
+    color: var(--navy);
+  }
+  .biz-panel { display: none; }
+  .biz-panel.active { display: block; }
+  .biz-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 2rem;
+  }
+  .biz-card h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.4rem;
+  }
+  .biz-card .tagline {
+    color: var(--sky);
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+  }
+  .biz-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1.4rem;
+  }
+  .biz-meta-box {
+    background: rgba(0,0,0,0.2);
+    border-radius: 8px;
+    padding: 0.8rem;
+  }
+  .biz-meta-box .k {
+    font-size: 0.68rem;
+    color: var(--grey);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .biz-meta-box .v {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .biz-desc { font-size: 0.92rem; color: var(--grey); margin-bottom: 1.2rem; }
+  .biz-steps { list-style: none; }
+  .biz-steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.88rem;
+  }
+  .biz-steps li::before {
+    content: '→';
+    color: var(--sky);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .difficulty-bar {
+    display: flex;
+    gap: 4px;
+    margin-top: 0.3rem;
+  }
+  .diff-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--border);
+  }
+  .diff-dot.on { background: var(--gold); }
+
+  /* PREREQUISITES */
+  .prereq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+  .prereq-card {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem;
+  }
+  .prereq-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--white);
+  }
+  .prereq-card .icon { font-size: 1.6rem; margin-bottom: 0.5rem; display: block; }
+  .prereq-items { list-style: none; }
+  .prereq-items li {
+    font-size: 0.84rem;
+    color: var(--grey);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    gap: 0.5rem;
+  }
+  .prereq-items li:last-child { border-bottom: none; }
+  .prereq-items li span { color: var(--green); font-size: 0.7rem; margin-top: 3px; flex-shrink: 0; }
+
+  /* ROADMAP */
+  .roadmap-timeline {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  .roadmap-block {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.4rem;
+    position: relative;
+  }
+  .roadmap-phase {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 0.4rem;
+  }
+  .roadmap-block h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .roadmap-items { list-style: none; }
+  .roadmap-items li {
+    font-size: 0.83rem;
+    color: var(--grey);
+    padding: 0.3rem 0;
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+  .roadmap-items li::before {
+    content: '✓';
+    color: var(--green);
+    font-size: 0.75rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .phase-badge {
+    position: absolute;
+    top: -12px; right: 16px;
+    background: var(--navy);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* PORT FLOW */
+  .port-flow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  .port-node {
+    background: var(--navy-mid);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.7rem 1.1rem;
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 700;
+  }
+  .port-node .pname { color: var(--sky); }
+  .port-node .pcargo { color: var(--grey); font-size: 0.7rem; font-weight: 400; }
+  .port-arrow {
+    color: var(--gold);
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  /* WARNING BOX */
+  .info-box {
+    background: rgba(244,166,35,0.07);
+    border: 1px solid rgba(244,166,35,0.25);
+    border-radius: 10px;
+    padding: 1.2rem 1.4rem;
+    margin-top: 1.5rem;
+    font-size: 0.88rem;
+  }
+  .info-box strong { color: var(--gold); }
+
+  /* TWO COLUMN */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  @media (max-width: 680px) {
+    .two-col { grid-template-columns: 1fr; }
+    nav .nav-links { display: none; }
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    font-size: 0.78rem;
+    color: var(--grey);
+    border-top: 1px solid var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  /* RISK PILL */
+  .risk-low { color: var(--green); }
+  .risk-med { color: var(--gold); }
+  .risk-high { color: var(--red); }
+
+  /* PULSE ANIMATION */
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+  }
+  .pulse { animation: pulse-dot 2s infinite; }
+
+  /* TANKER ANIMATION */
+  @keyframes sail {
+    0% { offset-distance: 0%; }
+    100% { offset-distance: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-brand">🚢 Saudi V2030 × Transport</span>
+  <ul class="nav-links">
+    <li><a href="#whatis">The Shift</a></li>
+    <li><a href="#cargo">Cargo</a></li>
+    <li><a href="#opportunity">Opportunity</a></li>
+    <li><a href="#bizmodels">Business Models</a></li>
+    <li><a href="#prereqs">Prerequisites</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+
+  <p class="hero-eyebrow">🇸🇦 Saudi Vision 2030 × 🇮🇳 Indian Transport Business</p>
+  <h1 class="hero-headline">
+    The World's Biggest<br>
+    <span class="accent">Chemical Factory</span><br>
+    Needs Your <span class="accent-sky">Trucks.</span>
+  </h1>
+  <p class="hero-sub">Saudi Arabia is converting its oil empire into a petrochemical powerhouse. India is the 2nd-largest buyer. Every tanker, truck, and warehouse in between is a transport business opportunity.</p>
+
+  <!-- Animated Trade Route SVG -->
+  <div class="trade-route-container">
+    <svg class="trade-svg" viewBox="0 0 700 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Sea background -->
+      <rect width="700" height="160" rx="12" fill="rgba(27,58,92,0.4)" stroke="rgba(0,180,216,0.2)" stroke-width="1"/>
+
+      <!-- Saudi side -->
+      <rect x="20" y="50" width="110" height="60" rx="8" fill="rgba(244,166,35,0.12)" stroke="rgba(244,166,35,0.4)" stroke-width="1.5"/>
+      <text x="75" y="72" text-anchor="middle" fill="#F4A623" font-size="9" font-weight="700" letter-spacing="1">SAUDI ARABIA</text>
+      <text x="75" y="87" text-anchor="middle" fill="#00B4D8" font-size="8">Jubail / Yanbu</text>
+      <text x="75" y="100" text-anchor="middle" fill="#8BA5BE" font-size="7.5">Chemical Ports</text>
+
+      <!-- Animated dashed line (sea route) -->
+      <path id="route" d="M 135 80 C 230 30, 470 130, 565 80" stroke="#00B4D8" stroke-width="1.5" stroke-dasharray="6 4" fill="none" opacity="0.6"/>
+
+      <!-- Animated tanker ship -->
+      <g id="tanker">
+        <animateMotion dur="6s" repeatCount="indefinite" rotate="auto">
+          <mpath href="#route"/>
+        </animateMotion>
+        <text y="0" font-size="18" text-anchor="middle">🛢️</text>
+      </g>
+
+      <!-- India side -->
+      <rect x="570" y="50" width="110" height="60" rx="8" fill="rgba(0,180,216,0.08)" stroke="rgba(0,180,216,0.35)" stroke-width="1.5"/>
+      <text x="625" y="72" text-anchor="middle" fill="#00B4D8" font-size="9" font-weight="700" letter-spacing="1">INDIA</text>
+      <text x="625" y="87" text-anchor="middle" fill="#2ECC71" font-size="8">Mundra / JNPT</text>
+      <text x="625" y="100" text-anchor="middle" fill="#8BA5BE" font-size="7.5">Your Market</text>
+
+      <!-- Labels on route -->
+      <text x="350" y="55" text-anchor="middle" fill="#F4A623" font-size="8" font-weight="600">Polymers · Plastics · Fertilizers</text>
+      <text x="350" y="68" text-anchor="middle" fill="#8BA5BE" font-size="7.5">~14 day voyage · 2,300 nautical miles</text>
+
+      <!-- Pulse dots -->
+      <circle cx="135" cy="80" r="5" fill="#F4A623" opacity="0.8">
+        <animate attributeName="r" values="4;7;4" dur="2s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="565" cy="80" r="5" fill="#00B4D8" opacity="0.8">
+        <animate attributeName="r" values="4;7;4" dur="2s" begin="1s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="0.9;0.4;0.9" dur="2s" begin="1s" repeatCount="indefinite"/>
+      </circle>
+
+      <!-- KSA flag mini -->
+      <text x="42" y="133" font-size="16">🇸🇦</text>
+      <text x="600" y="133" font-size="16">🇮🇳</text>
+
+      <!-- Distance label -->
+      <text x="350" y="145" text-anchor="middle" fill="rgba(139,165,190,0.6)" font-size="7" letter-spacing="1">ARABIAN SEA TRADE CORRIDOR — $30B ANNUAL FLOW</text>
+    </svg>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <span class="num">$30.1B</span>
+      <span class="label">India imports from Saudi (FY25)</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">$15.2B</span>
+      <span class="label">Saudi chemical logistics by 2030</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">35%</span>
+      <span class="label">of Saudi non-oil exports are chemicals</span>
+    </div>
+    <div class="hero-stat">
+      <span class="num">6.1%</span>
+      <span class="label">CAGR of chemical logistics growth</span>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IS THIS -->
+<div class="divider"></div>
+<section id="whatis">
+  <p class="section-eyebrow">The Big Picture</p>
+  <h2 class="section-title">Saudi Arabia is reinventing itself — and it needs Indian logistics</h2>
+  <p class="section-desc">For decades, Saudi Arabia simply sold crude oil. Vision 2030 changes that game: instead of exporting raw oil, they're converting it into high-value chemicals, plastics, polymers, and fertilizers — then shipping those to the world. India is the #2 destination.</p>
+
+  <div class="two-col">
+    <div>
+      <div style="background:var(--navy-mid); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin-bottom:1rem;">
+        <p style="font-size:0.72rem; color:var(--sky); text-transform:uppercase; font-weight:700; letter-spacing:0.15em; margin-bottom:0.6rem;">Before Vision 2030</p>
+        <h4 style="font-size:1rem; margin-bottom:0.5rem;">Saudi Arabia = Oil Tank</h4>
+        <p style="font-size:0.88rem; color:var(--grey);">73–84% of exports were crude oil. Just pump it out, sell it raw. No industrial complexity. No value addition.</p>
+        <div style="margin-top:0.8rem; padding:0.8rem; background:rgba(230,57,70,0.06); border-radius:8px; border:1px solid rgba(230,57,70,0.15);">
+          <span style="font-size:0.8rem; color:#E63946;">⚠ Problem: Oil prices crash → entire economy collapses</span>
+        </div>
+      </div>
+      <div style="background:var(--navy-mid); border:1px solid rgba(244,166,35,0.3); border-radius:12px; padding:1.5rem;">
+        <p style="font-size:0.72rem; color:var(--gold); text-transform:uppercase; font-weight:700; letter-spacing:0.15em; margin-bottom:0.6rem;">After Vision 2030</p>
+        <h4 style="font-size:1rem; margin-bottom:0.5rem;">Saudi Arabia = Chemical Superpower</h4>
+        <p style="font-size:0.88rem; color:var(--grey);">Convert crude → chemicals, plastics, polymers, fertilizers, specialty materials. Sadara complex alone = $20B investment. 120M+ tonnes/year production capacity across SABIC + Aramco.</p>
+        <div style="margin-top:0.8rem; padding:0.8rem; background:rgba(46,204,113,0.06); border-radius:8px; border:1px solid rgba(46,204,113,0.15);">
+          <span style="font-size:0.8rem; color:var(--green);">✓ Result: 12,000+ factories, 40 industrial cities, resilient export base</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="background:var(--navy-mid); border:1px solid var(--border); border-radius:12px; padding:1.5rem; height:100%;">
+        <p style="font-size:0.72rem; color:var(--sky); text-transform:uppercase; font-weight:700; letter-spacing:0.15em; margin-bottom:1rem;">The India Connection</p>
+        <div style="display:flex; flex-direction:column; gap:0.8rem;">
+          <div style="display:flex; gap:0.7rem; align-items:flex-start;">
+            <span style="font-size:1.2rem;">🤝</span>
+            <div>
+              <p style="font-size:0.88rem; font-weight:700; margin-bottom:0.2rem;">2nd Largest Trade Partner</p>
+              <p style="font-size:0.8rem; color:var(--grey);">India is Saudi Arabia's #2 export destination. Saudi is India's 5th-largest trading partner.</p>
+            </div>
+          </div>
+          <div style="display:flex; gap:0.7rem; align-items:flex-start;">
+            <span style="font-size:1.2rem;">🏭</span>
+            <div>
+              <p style="font-size:0.88rem; font-weight:700; margin-bottom:0.2rem;">India's Industrial Hunger</p>
+              <p style="font-size:0.8rem; color:var(--grey);">India's pharma, plastics, textiles, auto, agriculture sectors desperately need petrochemical inputs that Saudi is producing.</p>
+            </div>
+          </div>
+          <div style="display:flex; gap:0.7rem; align-items:flex-start;">
+            <span style="font-size:1.2rem;">🚛</span>
+            <div>
+              <p style="font-size:0.88rem; font-weight:700; margin-bottom:0.2rem;">The Missing Link: Transport</p>
+              <p style="font-size:0.8rem; color:var(--grey);">All this chemical cargo lands at Indian ports — and then needs to move 500–2000 km inland. That's where Indian transporters come in.</p>
+            </div>
+          </div>
+          <div style="display:flex; gap:0.7rem; align-items:flex-start;">
+            <span style="font-size:1.2rem;">📈</span>
+            <div>
+              <p style="font-size:0.88rem; font-weight:700; margin-bottom:0.2rem;">JV and $1B Investment Deals</p>
+              <p style="font-size:0.8rem; color:var(--grey);">Saudi Ministry of Investment signed a $1B agreement with India in 2023. Indian petrochemical companies are actively exploring joint ventures with SABIC and Aramco.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARGO TYPES -->
+<div class="divider"></div>
+<section id="cargo">
+  <p class="section-eyebrow">What's in the Tanker</p>
+  <h2 class="section-title">The Chemicals Flowing from Saudi → India</h2>
+  <p class="section-desc">Click each cargo type to see what it is, who buys it in India, and what the transport challenge looks like.</p>
+
+  <div class="cargo-grid" id="cargoGrid">
+    <div class="cargo-card" onclick="showCargo('polymers')">
+      <span class="cargo-icon">🔵</span>
+      <div class="cargo-name">Polymers &amp; Plastics</div>
+      <div class="cargo-vol">Highest Volume</div>
+    </div>
+    <div class="cargo-card" onclick="showCargo('fertilizers')">
+      <span class="cargo-icon">🌿</span>
+      <div class="cargo-name">Fertilizers</div>
+      <div class="cargo-vol">Seasonal Surge</div>
+    </div>
+    <div class="cargo-card" onclick="showCargo('methanol')">
+      <span class="cargo-icon">💧</span>
+      <div class="cargo-name">Methanol &amp; Ethylene</div>
+      <div class="cargo-vol">Liquid Bulk</div>
+    </div>
+    <div class="cargo-card" onclick="showCargo('specialty')">
+      <span class="cargo-icon">⚗️</span>
+      <div class="cargo-name">Specialty Chemicals</div>
+      <div class="cargo-vol">High Margin</div>
+    </div>
+    <div class="cargo-card" onclick="showCargo('ammonia')">
+      <span class="cargo-icon">💨</span>
+      <div class="cargo-name">Ammonia / Blue</div>
+      <div class="cargo-vol">Emerging Fast</div>
+    </div>
+  </div>
+
+  <div class="cargo-detail" id="cargo-polymers">
+    <div class="cargo-detail-title">🔵 Polymers &amp; Plastics (Polyethylene, Polypropylene, PVC)</div>
+    <p style="font-size:0.88rem; color:var(--grey);">The #1 chemical export from Saudi Arabia. Saudi Aramco + SABIC produce massive volumes of PE, PP, PVC pellets/granules that feed India's packaging, auto parts, pipes, and consumer goods industries.</p>
+    <div class="cargo-detail-grid">
+      <div class="cargo-detail-item"><span class="k">Form Factor</span><span class="v">Bagged granules / bulk bags / ISO containers</span></div>
+      <div class="cargo-detail-item"><span class="k">Indian Ports Entry</span><span class="v">Mundra, JNPT, Hazira, Kochi</span></div>
+      <div class="cargo-detail-item"><span class="k">Indian Buyers</span><span class="v">Plastic processors, pipe manufacturers, FMCG cos</span></div>
+      <div class="cargo-detail-item"><span class="k">Transport Mode</span><span class="v">Flatbed trucks (20 MT bags), box trucks, rail wagons</span></div>
+      <div class="cargo-detail-item"><span class="k">HAZMAT Level</span><span class="v">Low — Class 9 or non-regulated</span></div>
+      <div class="cargo-detail-item"><span class="k">Transport Opportunity</span><span class="v" style="color:var(--green)">✓ Very accessible for new entrants</span></div>
+    </div>
+  </div>
+
+  <div class="cargo-detail" id="cargo-fertilizers">
+    <div class="cargo-detail-title">🌿 Fertilizers (Urea, DAP, Ammonia-based)</div>
+    <p style="font-size:0.88rem; color:var(--grey);">Saudi Arabia is a top-5 global fertilizer exporter. India's agricultural demand is enormous — Rabi and Kharif seasons create massive short-term cargo spikes into ports like Paradip, Kakinada, and Kandla.</p>
+    <div class="cargo-detail-grid">
+      <div class="cargo-detail-item"><span class="k">Form Factor</span><span class="v">50 kg bags, bulk granules, supersacks</span></div>
+      <div class="cargo-detail-item"><span class="k">Indian Ports Entry</span><span class="v">Paradip, Kandla, Kakinada, Vizag</span></div>
+      <div class="cargo-detail-item"><span class="k">Indian Buyers</span><span class="v">IFFCO, RCF, state agri departments, farmers</span></div>
+      <div class="cargo-detail-item"><span class="k">Transport Mode</span><span class="v">Open trucks, tippers, rail rakes (wagons)</span></div>
+      <div class="cargo-detail-item"><span class="k">HAZMAT Level</span><span class="v">Medium — Oxidizer classification</span></div>
+      <div class="cargo-detail-item"><span class="k">Transport Opportunity</span><span class="v" style="color:var(--sky)">✓ Strong seasonal contracts available</span></div>
+    </div>
+  </div>
+
+  <div class="cargo-detail" id="cargo-methanol">
+    <div class="cargo-detail-title">💧 Methanol, Ethylene Glycol, Chemical Liquids</div>
+    <p style="font-size:0.88rem; color:var(--grey);">High-volume liquid chemicals used in pharma, textiles (MEG for polyester), and industrial applications. Requires specialized liquid tanker infrastructure — tank farms, ISO tanks, stainless steel road tankers.</p>
+    <div class="cargo-detail-grid">
+      <div class="cargo-detail-item"><span class="k">Form Factor</span><span class="v">ISO tank containers, liquid tanker ships</span></div>
+      <div class="cargo-detail-item"><span class="k">Indian Ports Entry</span><span class="v">Dahej, Hazira, Mundra, Chennai</span></div>
+      <div class="cargo-detail-item"><span class="k">Indian Buyers</span><span class="v">Reliance, Asian Paints, textile dyeing units</span></div>
+      <div class="cargo-detail-item"><span class="k">Transport Mode</span><span class="v">SS road tankers, ISO tank trucking</span></div>
+      <div class="cargo-detail-item"><span class="k">HAZMAT Level</span><span class="v" style="color:var(--gold)">High — Flammable liquid Class 3</span></div>
+      <div class="cargo-detail-item"><span class="k">Transport Opportunity</span><span class="v" style="color:var(--gold)">Specialized — high barrier, high margin</span></div>
+    </div>
+  </div>
+
+  <div class="cargo-detail" id="cargo-specialty">
+    <div class="cargo-detail-title">⚗️ Specialty &amp; Performance Chemicals</div>
+    <p style="font-size:0.88rem; color:var(--grey);">SABIC's shift toward specialty chemicals (construction additives, electronics-grade materials, medical polymers) creates high-value, time-sensitive cargo. Vision 2030 is heavily pushing this segment to diversify beyond commodity chemicals.</p>
+    <div class="cargo-detail-grid">
+      <div class="cargo-detail-item"><span class="k">Form Factor</span><span class="v">Small drums, IBC tanks, temperature-controlled</span></div>
+      <div class="cargo-detail-item"><span class="k">Indian Ports Entry</span><span class="v">JNPT, Chennai, Vizag</span></div>
+      <div class="cargo-detail-item"><span class="k">Indian Buyers</span><span class="v">Pharma, electronics, paints, construction</span></div>
+      <div class="cargo-detail-item"><span class="k">Transport Mode</span><span class="v">Closed vans, temp-controlled trucks</span></div>
+      <div class="cargo-detail-item"><span class="k">HAZMAT Level</span><span class="v">Varies — some Class 6 (toxic)</span></div>
+      <div class="cargo-detail-item"><span class="k">Transport Opportunity</span><span class="v" style="color:var(--sky)">Premium segment — fragmented, profitable</span></div>
+    </div>
+  </div>
+
+  <div class="cargo-detail" id="cargo-ammonia">
+    <div class="cargo-detail-title">💨 Blue Ammonia / Green Hydrogen (Emerging)</div>
+    <p style="font-size:0.88rem; color:var(--grey);">Saudi Arabia is building the world's largest green hydrogen facility (NEOM, 650 tonnes/day). Blue ammonia (decarbonized) is already being shipped to India for fertilizer and energy use. This is a 2025–2030 growth segment.</p>
+    <div class="cargo-detail-grid">
+      <div class="cargo-detail-item"><span class="k">Form Factor</span><span class="v">Pressurized gas tankers, specialized vessels</span></div>
+      <div class="cargo-detail-item"><span class="k">Indian Ports Entry</span><span class="v">New Energy Terminals (developing)</span></div>
+      <div class="cargo-detail-item"><span class="k">Indian Buyers</span><span class="v">Fertilizer cos, power plants, NTPC</span></div>
+      <div class="cargo-detail-item"><span class="k">Transport Mode</span><span class="v">Pressurized road tankers — very specialized</span></div>
+      <div class="cargo-detail-item"><span class="k">HAZMAT Level</span><span class="v" style="color:var(--red)">Critical — Class 2.3 toxic gas</span></div>
+      <div class="cargo-detail-item"><span class="k">Transport Opportunity</span><span class="v" style="color:var(--green)">Future gold — enter now, grow with it</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPPORTUNITY FOR TRANSPORT -->
+<div class="divider"></div>
+<section id="opportunity">
+  <p class="section-eyebrow">Where The Money Is</p>
+  <h2 class="section-title">The Transport Opportunity Chain</h2>
+  <p class="section-desc">Saudi chemicals don't drive themselves. Every link below is a revenue-generating role for an Indian transport business.</p>
+
+  <!-- Port Flow Visual -->
+  <div class="port-flow">
+    <div class="port-node">
+      <div class="pname">🇸🇦 Saudi Port</div>
+      <div class="pcargo">Jubail / Yanbu</div>
+    </div>
+    <div class="port-arrow">⟶</div>
+    <div class="port-node">
+      <div class="pname">🛢️ Tanker Ship</div>
+      <div class="pcargo">14–21 day sail</div>
+    </div>
+    <div class="port-arrow">⟶</div>
+    <div class="port-node">
+      <div class="pname">🇮🇳 Indian Port</div>
+      <div class="pcargo">Mundra / JNPT / Dahej</div>
+    </div>
+    <div class="port-arrow">⟶</div>
+    <div class="port-node" style="border-color:rgba(244,166,35,0.4);">
+      <div class="pname" style="color:var(--gold);">🚛 YOUR TRUCK</div>
+      <div class="pcargo">Port → Factory</div>
+    </div>
+    <div class="port-arrow">⟶</div>
+    <div class="port-node">
+      <div class="pname">🏭 Indian Factory</div>
+      <div class="pcargo">Pharma / Plastic / Agri</div>
+    </div>
+  </div>
+
+  <div class="funnel-wrapper">
+    <div class="funnel-stage">
+      <div class="funnel-num">1</div>
+      <div class="funnel-content">
+        <h3>Chemical Freight Forwarding / NVOCC</h3>
+        <p>Book cargo space on chemical tankers between Saudi ports and Indian ports. Act as an agent between Saudi exporters (SABIC, Aramco) and Indian chemical importers. You own no ship — you own the relationship and the logistics coordination.</p>
+        <span class="funnel-tag">📋 License: IEC + NVOCC</span>
+        <span class="funnel-tag" style="background:rgba(46,204,113,0.1); color:var(--green); margin-left:4px;">💰 Asset-light entry</span>
+      </div>
+    </div>
+
+    <div class="funnel-stage">
+      <div class="funnel-num">2</div>
+      <div class="funnel-content">
+        <h3>ISO Tank Trucking Fleet</h3>
+        <p>The highest-growth segment. ISO tank containers arriving at ports need specialized tractors to move them. You provide ISO-tank-capable prime movers + trailers for port-to-factory runs. Chemical companies pay ₹1–2.5L per trip for 300–800 km moves.</p>
+        <span class="funnel-tag">🚛 Asset: Prime movers + ISO trailers</span>
+        <span class="funnel-tag" style="background:rgba(0,180,216,0.1); color:var(--sky); margin-left:4px;">📈 6% market CAGR</span>
+      </div>
+    </div>
+
+    <div class="funnel-stage">
+      <div class="funnel-num">3</div>
+      <div class="funnel-content">
+        <h3>Liquid Chemical Road Tanker Operations</h3>
+        <p>Run a fleet of stainless steel / MS road tankers that pick up liquid chemicals (methanol, ethylene glycol, solvents) from port tank farms and deliver to factories. Requires ADG/HAZMAT certification. High barrier = less competition = higher margins.</p>
+        <span class="funnel-tag">⚗️ ADG Certificate Required</span>
+        <span class="funnel-tag" style="background:rgba(244,166,35,0.1); color:var(--gold); margin-left:4px;">💰 ₹80K–1.5L per trip</span>
+      </div>
+    </div>
+
+    <div class="funnel-stage">
+      <div class="funnel-num">4</div>
+      <div class="funnel-content">
+        <h3>Polymer / Bag Chemical Last-Mile Distribution</h3>
+        <p>The most accessible entry point. Polymers (PE, PP) arrive in 25–50 kg bags or big bags. Regular trucks (no HAZMAT) deliver to plastic factories, pipe manufacturers, cable makers across industrial clusters. High frequency, repeat business.</p>
+        <span class="funnel-tag">✅ No special license for bagged polymers</span>
+        <span class="funnel-tag" style="background:rgba(46,204,113,0.1); color:var(--green); margin-left:4px;">🎯 Easiest entry point</span>
+      </div>
+    </div>
+
+    <div class="funnel-stage">
+      <div class="funnel-num">5</div>
+      <div class="funnel-content">
+        <h3>Chemical Warehouse / Tank Farm Near Port</h3>
+        <p>Build or lease chemical storage near major chemical ports (Mundra, Dahej, Hazira, Vizag). Importers need intermediate storage between ship arrival and inland dispatch. Tank farms for liquid chemicals, covered godowns for solid chemicals. Charge per MT per day.</p>
+        <span class="funnel-tag">🏭 PESO License Required</span>
+        <span class="funnel-tag" style="background:rgba(244,166,35,0.1); color:var(--gold); margin-left:4px;">💰 ₹50L–2Cr to set up</span>
+      </div>
+    </div>
+
+    <div class="funnel-stage">
+      <div class="funnel-num">6</div>
+      <div class="funnel-content">
+        <h3>C&amp;F Agent / Customs Broker for Chemical Importers</h3>
+        <p>Clear chemicals through Indian customs on behalf of importers. Chemical imports have complex documentation — MSDS, ADG compliance, SABER certification from Saudi side, CPCB norms in India. CHA license + chemical domain knowledge = valuable niche.</p>
+        <span class="funnel-tag">📄 CHA License + Chemical Knowledge</span>
+        <span class="funnel-tag" style="background:rgba(0,180,216,0.1); color:var(--sky); margin-left:4px;">🎯 Low capital, high value</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <strong>📍 Best Port Clusters for Indian Transport Entrepreneurs</strong><br>
+    <span style="color:var(--grey);">Mundra (polymers/bulk), Dahej-Hazira corridor (liquid chemicals), JNPT/Mumbai (specialty chemicals), Paradip (fertilizers), Kakinada (agri chemicals), Vizag (bulk). Being located near these clusters or establishing a depot there is a major advantage.</span>
+  </div>
+</section>
+
+<!-- BUSINESS MODELS -->
+<div class="divider"></div>
+<section id="bizmodels">
+  <p class="section-eyebrow">Pick Your Play</p>
+  <h2 class="section-title">6 Business Models — Detailed Breakdown</h2>
+  <p class="section-desc">Choose a model based on your capital, risk appetite, and what you already own or know.</p>
+
+  <div class="biz-tabs">
+    <button class="biz-tab active" onclick="showBiz('iso')">ISO Tank Fleet</button>
+    <button class="biz-tab" onclick="showBiz('forward')">Freight Forwarder</button>
+    <button class="biz-tab" onclick="showBiz('polymer')">Polymer Distributor</button>
+    <button class="biz-tab" onclick="showBiz('warehouse')">Chemical Warehouse</button>
+    <button class="biz-tab" onclick="showBiz('cf')">C&amp;F Agent</button>
+    <button class="biz-tab" onclick="showBiz('3pl')">3PL Partner</button>
+  </div>
+
+  <!-- ISO TANK -->
+  <div class="biz-panel active" id="biz-iso">
+    <div class="biz-card">
+      <h3>ISO Tank Chemical Logistics Fleet</h3>
+      <div class="tagline">Move the containers that hold liquid chemicals from ports to factories</div>
+      <div class="biz-meta-grid">
+        <div class="biz-meta-box"><span class="k">Startup Capital</span><span class="v">₹40–80L</span></div>
+        <div class="biz-meta-box"><span class="k">Revenue Per Trip</span><span class="v">₹90K–2L</span></div>
+        <div class="biz-meta-box"><span class="k">Break-Even</span><span class="v">18–30 months</span></div>
+        <div class="biz-meta-box"><span class="k">Difficulty</span>
+          <div class="difficulty-bar">
+            <div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+        </div>
+      </div>
+      <p class="biz-desc">ISO tank containers (the cylindrical tank inside a standard 20ft/40ft frame) are the standard for liquid chemical imports. You need a prime mover tractor + ISO tank trailer chassis. Clients are chemical trading companies, SABIC-linked importers, EPC companies. Key corridors: Mundra → Ahmedabad/Baroda, Dahej → Surat, JNPT → Pune/Nashik.</p>
+      <ul class="biz-steps">
+        <li>Buy 1 prime mover + 2–3 ISO tank chassis (lease chassis first to reduce capital)</li>
+        <li>Get ADG (Anhydrous Dangerous Goods) training for driver + helper</li>
+        <li>Register with tank container operators: Gold Container, Eurotainer, Triton</li>
+        <li>Approach chemical importers in GIDC (Vapi, Ankleshwar, Dahej) for spot loads</li>
+        <li>Build track record → secure 12-month contracts with anchor clients</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FREIGHT FORWARDER -->
+  <div class="biz-panel" id="biz-forward">
+    <div class="biz-card">
+      <h3>Chemical Freight Forwarder / NVOCC</h3>
+      <div class="tagline">Own the cargo relationship, not the ship — coordinate Saudi-India chemical shipments</div>
+      <div class="biz-meta-grid">
+        <div class="biz-meta-box"><span class="k">Startup Capital</span><span class="v">₹8–20L</span></div>
+        <div class="biz-meta-box"><span class="k">Revenue Per Shipment</span><span class="v">₹30K–2L commission</span></div>
+        <div class="biz-meta-box"><span class="k">Break-Even</span><span class="v">6–12 months</span></div>
+        <div class="biz-meta-box"><span class="k">Difficulty</span>
+          <div class="difficulty-bar">
+            <div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+        </div>
+      </div>
+      <p class="biz-desc">You act as the middleman between Saudi chemical exporters (SABIC, SABIC-licensed distributors) and Indian importers. You book container or tanker slots on shipping lines (Bahri, MSC, Maersk), handle documentation (Bill of Lading, MSDS, chemical certificates), and earn commission. Can start from a laptop + phone.</p>
+      <ul class="biz-steps">
+        <li>Get IEC (Import Export Code) — 2 day online process, nearly free</li>
+        <li>Register as NVOCC (Non-Vessel Operating Common Carrier) with DGFT if you'll issue your own B/L</li>
+        <li>Build relationships with Bahri Chemicals (Saudi national shipping co) agents in India</li>
+        <li>Target mid-size chemical importers who lack dedicated freight teams</li>
+        <li>Offer bundled service: freight + customs docs + inland delivery coordination</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- POLYMER DISTRIBUTOR -->
+  <div class="biz-panel" id="biz-polymer">
+    <div class="biz-card">
+      <h3>Polymer / Plastic Granule Transport &amp; Distribution</h3>
+      <div class="tagline">The easiest entry — regular trucks, no HAZMAT, massive volume</div>
+      <div class="biz-meta-grid">
+        <div class="biz-meta-box"><span class="k">Startup Capital</span><span class="v">₹20–35L</span></div>
+        <div class="biz-meta-box"><span class="k">Revenue Per Truck/Month</span><span class="v">₹60K–1.2L net</span></div>
+        <div class="biz-meta-box"><span class="k">Break-Even</span><span class="v">12–18 months</span></div>
+        <div class="biz-meta-box"><span class="k">Difficulty</span>
+          <div class="difficulty-bar">
+            <div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot"></div><div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+        </div>
+      </div>
+      <p class="biz-desc">PE/PP/PVC granules from Saudi arrive in 25 kg bags, big bags, or loose bulk at ports. These are non-hazardous and can be transported by any commercial truck. Deliver to small plastic factories, pipe makers, cable manufacturers in industrial estates. This is where most grassroots transport entrepreneurs should start.</p>
+      <ul class="biz-steps">
+        <li>Purchase 2–3 closed-body trucks (18–21 tonne capacity) near a polymer-active port</li>
+        <li>Partner with a C&F agent or port-based stockist who handles customs clearance</li>
+        <li>Get empaneled with polymer traders in GIDC Vapi, Silvassa, Hosur, Baddi</li>
+        <li>Offer monthly contract rates — predictable income vs spot market</li>
+        <li>Add value: plastic PE liner + dunnage inside truck to protect bags</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WAREHOUSE -->
+  <div class="biz-panel" id="biz-warehouse">
+    <div class="biz-card">
+      <h3>Chemical Warehouse / Tank Farm</h3>
+      <div class="tagline">Store chemicals between port arrival and factory dispatch — recurring daily income</div>
+      <div class="biz-meta-grid">
+        <div class="biz-meta-box"><span class="k">Startup Capital</span><span class="v">₹60L–2Cr</span></div>
+        <div class="biz-meta-box"><span class="k">Revenue Model</span><span class="v">₹8–20/MT/day storage</span></div>
+        <div class="biz-meta-box"><span class="k">Break-Even</span><span class="v">24–48 months</span></div>
+        <div class="biz-meta-box"><span class="k">Difficulty</span>
+          <div class="difficulty-bar">
+            <div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot"></div>
+          </div>
+        </div>
+      </div>
+      <p class="biz-desc">Chemical importers need intermediate storage because factories can't absorb full-vessel cargo at once. A warehouse near Mundra, Dahej, Hazira, or Vizag that stores bags, drums, or IBC tanks in a compliant manner earns daily rent. Tank farms for liquid chemicals earn significantly more. PESO (Petroleum and Explosives Safety Organisation) approval is mandatory.</p>
+      <ul class="biz-steps">
+        <li>Identify land/shed within 15 km of a major chemical port</li>
+        <li>Get PESO approval for hazardous material storage</li>
+        <li>Install fire suppression, spill containment, ventilation as per factory act norms</li>
+        <li>Partner with 2–3 C&F agents as your guaranteed anchor clients for storage</li>
+        <li>Bundle: storage + handling + dispatch coordination = 3PL offering</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- C&F AGENT -->
+  <div class="biz-panel" id="biz-cf">
+    <div class="biz-card">
+      <h3>C&amp;F Agent / Customs House Agent for Chemical Imports</h3>
+      <div class="tagline">Specialist chemical customs clearance — knowledge is the moat</div>
+      <div class="biz-meta-grid">
+        <div class="biz-meta-box"><span class="k">Startup Capital</span><span class="v">₹5–15L</span></div>
+        <div class="biz-meta-box"><span class="k">Revenue Per B/E</span><span class="v">₹15K–80K per clearance</span></div>
+        <div class="biz-meta-box"><span class="k">Break-Even</span><span class="v">6–18 months</span></div>
+        <div class="biz-meta-box"><span class="k">Difficulty</span>
+          <div class="difficulty-bar">
+            <div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot"></div><div class="diff-dot"></div>
+          </div>
+        </div>
+      </div>
+      <p class="biz-desc">Chemical imports are documentation-intensive: MSDS sheets, Chemical Registration (BIS/CPCB), ADG/IMDG code compliance, SABER certification from Saudi side, IEC+GST registration of importer, hazardous cargo permissions. A CHA (Customs House Agent) with chemical specialization commands premium fees and recurring contracts.</p>
+      <ul class="biz-steps">
+        <li>Pass the CHA exam (CBIC) — or partner with an existing licensed CHA</li>
+        <li>Study chemical import regulations: CPCB rules, Hazardous Waste Rules 2016, ADG code</li>
+        <li>Learn ICEGATE portal and SABIC's SABER certification requirements deeply</li>
+        <li>Build a client base among GIDC-cluster importers of Saudi chemicals</li>
+        <li>Offer bundled: customs + documentation + compliance advisory = recurring retainer</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3PL -->
+  <div class="biz-panel" id="biz-3pl">
+    <div class="biz-card">
+      <h3>3PL Partner for Chemical MNCs (SABIC Vendor)</h3>
+      <div class="tagline">Become a registered logistics partner for SABIC / Aramco linked chemical cos in India</div>
+      <div class="biz-meta-grid">
+        <div class="biz-meta-box"><span class="k">Startup Capital</span><span class="v">₹1–5Cr</span></div>
+        <div class="biz-meta-box"><span class="k">Revenue Model</span><span class="v">Yearly contract ₹1–10Cr</span></div>
+        <div class="biz-meta-box"><span class="k">Break-Even</span><span class="v">12–24 months</span></div>
+        <div class="biz-meta-box"><span class="k">Difficulty</span>
+          <div class="difficulty-bar">
+            <div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot on"></div><div class="diff-dot on"></div>
+          </div>
+        </div>
+      </div>
+      <p class="biz-desc">Companies like SABIC, Sadara, and Indian distributors of Saudi chemicals need reliable 3PL partners who can handle everything: port pickup, customs liaison, warehousing, last-mile delivery, and reverse logistics. This is the pinnacle model — highest compliance bar (ISO 9001, SQAS certification, Responsible Care®) but highest revenue and loyalty.</p>
+      <ul class="biz-steps">
+        <li>Build track record first with models 1–4 above (2–3 years of chemical logistics history)</li>
+        <li>Get ISO 9001:2015 certification + SQAS (Safety & Quality Assessment System for chemical logistics)</li>
+        <li>Invest in TMS software (fleet tracking, temperature monitoring, digital PoD)</li>
+        <li>Contact SABIC India's supply chain team and Reliance Industries' chemical procurement team</li>
+        <li>Participate in Responsible Care® program — the chemical industry's global safety standard</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PREREQUISITES -->
+<div class="divider"></div>
+<section id="prereqs">
+  <p class="section-eyebrow">What You Need</p>
+  <h2 class="section-title">Prerequisites by Category</h2>
+  <p class="section-desc">Licenses, capital, certifications, and knowledge you'll need depending on which model you pick.</p>
+
+  <div class="prereq-grid">
+    <div class="prereq-card">
+      <span class="icon">📄</span>
+      <h4>Legal &amp; Licenses</h4>
+      <ul class="prereq-items">
+        <li><span>✓</span> GST Registration (mandatory)</li>
+        <li><span>✓</span> IEC Code (Import Export Code, for freight forwarding)</li>
+        <li><span>✓</span> CHA License (for customs clearance)</li>
+        <li><span>✓</span> NVOCC Registration with DGFT</li>
+        <li><span>✓</span> Motor Vehicle permit (All India permit for transport)</li>
+        <li><span>✓</span> PESO License (for hazardous chemical storage)</li>
+      </ul>
+    </div>
+
+    <div class="prereq-card">
+      <span class="icon">☢️</span>
+      <h4>HAZMAT / Safety Certifications</h4>
+      <ul class="prereq-items">
+        <li><span>✓</span> ADG Certificate (Anhydrous Dangerous Goods)</li>
+        <li><span>✓</span> IMDG Code training (International Maritime Dangerous Goods)</li>
+        <li><span>✓</span> Driver HAZMAT training (Motor Vehicles Rules, Schedule XIII)</li>
+        <li><span>✓</span> Emergency Response sheet (TREM card) per cargo</li>
+        <li><span>✓</span> Responsible Care® (for 3PL model)</li>
+        <li><span>✓</span> SQAS Certification (for MNC clients)</li>
+      </ul>
+    </div>
+
+    <div class="prereq-card">
+      <span class="icon">🚛</span>
+      <h4>Assets &amp; Equipment</h4>
+      <ul class="prereq-items">
+        <li><span>✓</span> Closed body truck (for polymer bags) — ₹18–28L new</li>
+        <li><span>✓</span> ISO tank trailer chassis — ₹8–15L new</li>
+        <li><span>✓</span> Prime mover (tractor) — ₹28–40L new</li>
+        <li><span>✓</span> SS Road tanker (for liquid chemicals) — ₹22–35L</li>
+        <li><span>✓</span> Warehouse shed + racking near port — lease first</li>
+        <li><span>✓</span> Spill containment kit, fire extinguishers (mandatory)</li>
+      </ul>
+    </div>
+
+    <div class="prereq-card">
+      <span class="icon">💰</span>
+      <h4>Capital Requirement by Model</h4>
+      <ul class="prereq-items">
+        <li><span>✓</span> C&F Agent / Forwarder — ₹5–15L</li>
+        <li><span>✓</span> Polymer truck fleet (2 trucks) — ₹35–55L</li>
+        <li><span>✓</span> ISO tank operation (1 unit) — ₹45–80L</li>
+        <li><span>✓</span> Liquid tanker (1 SS tanker) — ₹25–40L</li>
+        <li><span>✓</span> Chemical warehouse — ₹60L–2Cr</li>
+        <li><span>✓</span> Full 3PL setup — ₹1–5Cr</li>
+      </ul>
+    </div>
+
+    <div class="prereq-card">
+      <span class="icon">📚</span>
+      <h4>Domain Knowledge Needed</h4>
+      <ul class="prereq-items">
+        <li><span>✓</span> Basic chemistry (hazard classes, MSDS reading)</li>
+        <li><span>✓</span> Indian Customs — ICEGATE, Bill of Entry process</li>
+        <li><span>✓</span> Saudi export procedures (SABER platform, COO)</li>
+        <li><span>✓</span> Port operations: Mundra, Dahej, JNPT procedures</li>
+        <li><span>✓</span> INCOTERMS (FOB, CIF, DDP) for contract structuring</li>
+        <li><span>✓</span> Freight market pricing: sea freight, port handling charges</li>
+      </ul>
+    </div>
+
+    <div class="prereq-card">
+      <span class="icon">🤝</span>
+      <h4>Relationships to Build</h4>
+      <ul class="prereq-items">
+        <li><span>✓</span> Shipping agents of Bahri / MSC / Maersk in India</li>
+        <li><span>✓</span> Chemical importers in GIDC / industrial clusters</li>
+        <li><span>✓</span> Port-based C&F agents (at Mundra, JNPT, Dahej)</li>
+        <li><span>✓</span> SABIC India / Sadara distributors (Mumbai/Delhi offices)</li>
+        <li><span>✓</span> Truck financiers: SBI, HDFC Truck Loan, Tata Motors Finance</li>
+        <li><span>✓</span> CHEMEXCIL (India chemical exporters council) for trade info</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<div class="divider"></div>
+<section id="roadmap">
+  <p class="section-eyebrow">Your Action Plan</p>
+  <h2 class="section-title">12-Month Roadmap for an Individual</h2>
+  <p class="section-desc">Practical phased plan — start from zero, build toward a chemical transport business anchored in the Saudi-India trade corridor.</p>
+
+  <div class="roadmap-timeline">
+    <div class="roadmap-block">
+      <div class="phase-badge">Month 1–2</div>
+      <div class="roadmap-phase">Phase 1: Learn</div>
+      <h4>Build Your Knowledge Base</h4>
+      <ul class="roadmap-items">
+        <li>Study chemical import data on DGCIS / Volza.com — see which chemicals India buys from Saudi</li>
+        <li>Visit your nearest major chemical port (Mundra or Dahej) — talk to agents, watch operations</li>
+        <li>Join CHEMEXCIL and FICCI Chemical Committee mailing lists</li>
+        <li>Learn IMDG code basics (free online resources from IMO)</li>
+        <li>Read Saudi SABIC's India distributor list — identify who's active</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-block">
+      <div class="phase-badge">Month 2–4</div>
+      <div class="roadmap-phase">Phase 2: Register</div>
+      <h4>Set Up Legal &amp; Compliance</h4>
+      <ul class="roadmap-items">
+        <li>Register firm / LLP + GST — ₹5,000–10,000 including CA fees</li>
+        <li>Apply for IEC (Import Export Code) — free, 2 days on DGFT portal</li>
+        <li>Get All India permit for trucks if you already own trucks</li>
+        <li>Complete ADG training for yourself + key driver</li>
+        <li>Open current account with Forex facility (HDFC/ICICI) for USD transactions</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-block">
+      <div class="phase-badge">Month 3–6</div>
+      <div class="roadmap-phase">Phase 3: First Clients</div>
+      <h4>Get Your First Chemical Load</h4>
+      <ul class="roadmap-items">
+        <li>If you own trucks: approach polymer traders in GIDC Ankleshwar / Vapi / Surat for spot loads</li>
+        <li>If no trucks: partner with a CHA at Mundra and offer ground transport coordination</li>
+        <li>Register on Rivigo, BlackBuck, Vahak — chemical cargo boards</li>
+        <li>Cold-call 20 chemical importers in your state — offer 10% below market rate for first 3 loads</li>
+        <li>Complete 5+ documented trips. Photograph, get PoDs signed. Build a small track record file.</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-block">
+      <div class="phase-badge">Month 6–9</div>
+      <div class="roadmap-phase">Phase 4: Scale</div>
+      <h4>Lock In Contracts, Add Assets</h4>
+      <ul class="roadmap-items">
+        <li>Convert 2–3 spot clients to monthly/quarterly contracts</li>
+        <li>Use first revenue to buy/finance 1 additional truck or ISO tank chassis</li>
+        <li>Get ISO 9001 quality certification (₹40K–80K with consultant)</li>
+        <li>Start approaching SABIC India's distributor network for empanelment</li>
+        <li>Hire 1 operations manager + 1 compliance coordinator</li>
+      </ul>
+    </div>
+
+    <div class="roadmap-block">
+      <div class="phase-badge">Month 9–12</div>
+      <div class="roadmap-phase">Phase 5: Anchor</div>
+      <h4>Become a Specialist, Win Long Contracts</h4>
+      <ul class="roadmap-items">
+        <li>Apply to be a Responsible Care® signatory (ICMA India)</li>
+        <li>Pitch to SABIC India, Deepak Chemicals, Tata Chemicals for 3PL vendor registration</li>
+        <li>Set up TMS (Transport Management Software) — Locus.sh or LogiNext</li>
+        <li>Explore opening a small ISO tank depot near Mundra or Hazira</li>
+        <li>Build relationships with Saudi Aramco-linked offices in India (Delhi / Mumbai)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="info-box" style="margin-top:2rem;">
+    <strong>⚡ Rocky's Angle — Kolhapur Connection:</strong><br>
+    <span style="color:var(--grey);">Kolhapur's industrial estate (Shiroli, Gokul Shirgaon) has sugar, foundry, and engineering industries that use chemicals. Fertilizer distribution in Kolhapur district (major agri belt) is a ready market. Kolhapur → Ratnagiri port (105 km) or Mumbai/JNPT (370 km) is a viable corridor for chemical transport. The Shree Lodging land and network in Kolhapur could also serve as a base for a transport depot.</span>
+  </div>
+</section>
+
+<div class="divider"></div>
+<footer>
+  <p style="margin-bottom:0.5rem;">Saudi Vision 2030 × India Transport Opportunity — Research Compiled July 2026</p>
+  <p>Sources: Arab News, Mordor Intelligence, Bonafide Research, Saudi Aramco, CSIS, Andaman Partners, USSBC Economic Brief. Data reflects FY2024–25 trade flows. Market projections are analyst estimates.</p>
+</footer>
+
+<script>
+  // CARGO CARD INTERACTION
+  function showCargo(id) {
+    // hide all details
+    document.querySelectorAll('.cargo-detail').forEach(d => d.classList.remove('show'));
+    document.querySelectorAll('.cargo-card').forEach(c => c.classList.remove('active'));
+
+    // show selected
+    const detail = document.getElementById('cargo-' + id);
+    if (detail) {
+      detail.classList.add('show');
+      detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    // find and activate card
+    const cards = document.querySelectorAll('.cargo-card');
+    const labels = ['polymers','fertilizers','methanol','specialty','ammonia'];
+    const idx = labels.indexOf(id);
+    if (idx >= 0 && cards[idx]) cards[idx].classList.add('active');
+  }
+
+  // BUSINESS MODEL TABS
+  function showBiz(id) {
+    document.querySelectorAll('.biz-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.biz-tab').forEach(t => t.classList.remove('active'));
+
+    const panel = document.getElementById('biz-' + id);
+    if (panel) panel.classList.add('active');
+
+    // find correct tab
+    const tabs = document.querySelectorAll('.biz-tab');
+    const ids = ['iso','forward','polymer','warehouse','cf','3pl'];
+    const idx = ids.indexOf(id);
+    if (idx >= 0 && tabs[idx]) tabs[idx].classList.add('active');
+  }
+
+  // Open first cargo by default
+  window.addEventListener('load', () => {
+    showCargo('polymers');
+  });
+</script>
+</body>
+</html>
